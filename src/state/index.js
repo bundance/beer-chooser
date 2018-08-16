@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
-//import search from './search/search.reducers';
+import beer from './beer/beer.reducers';
 
 const appReducer = combineReducers({
-    // app,
-    // data
+    beer
 });
 
 export default (state, action) => {
