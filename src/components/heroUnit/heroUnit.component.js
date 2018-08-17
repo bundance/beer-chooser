@@ -1,4 +1,3 @@
-
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
@@ -33,7 +32,7 @@ const styles = theme => ({
 });
 
 const HeroUnit = ({ classes, loadingState }) => {
-    const spinnerClassName = classNames({ [classes.spinner]:  loadingState === LOADING, [classes.hiddenSpinner]: loadingState !== LOADING });
+    const spinnerClassName = loadingState === LOADING ? classes.spinner :classes.hiddenSpinner;
     const heroContentClass = loadingState === LOADING ? classes.greyedOut : classes.heroContent;
 
     return ( 
