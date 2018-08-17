@@ -10,18 +10,19 @@ const styles = theme => ({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
+        marginTop: 100
     },
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
-        width: 200,
+        width: 462
     },
     menu: {
         width: 200,
     },
     button: {
-        //backgroundColor: POLISH_RED,
-        color: WHITE
+        color: WHITE,
+        fontWeight: 'bold'
     }
 });
 class Search extends Component {
@@ -48,14 +49,14 @@ class Search extends Component {
             <form className={classes.container} noValidate autoComplete="off">
                 <TextField
                     id="with-placeholder"
-                    label="Food Type"
-                    placeholder="Food Type"
+                    label="Food"
+                    placeholder="e.g. chicken"
                     className={classes.textField}
                     margin="normal"
                     onChange={this.handleFoodInput}
                 />
                 <Button className={classes.button} variant="contained" color="primary" onClick={this.handleSearch}>
-                    Fetch Beer
+                    Find Beer
                 </Button>
             </form>
         )
