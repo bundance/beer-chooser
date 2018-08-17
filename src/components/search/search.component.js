@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { POLISH_RED, WHITE } from '../../config/config';
 
-
 const styles = theme => ({
     container: {
         display: 'flex',
@@ -23,12 +22,17 @@ const styles = theme => ({
     button: {
         color: WHITE,
         fontWeight: 'bold'
+    },
+    wrapper: {
+        margin: theme.spacing.unit,
+        position: 'relative',
     }
 });
 class Search extends Component {
     static propTypes = {
-        onSearch: PropTypes.func.isRequired,
-        classes: PropTypes.object.isRequired
+        classes: PropTypes.object.isRequired,
+        loadingState: PropTypes.string.isRequired,
+        onSearch: PropTypes.func.isRequired
     }
 
     constructor(props) {
@@ -55,9 +59,11 @@ class Search extends Component {
                     margin="normal"
                     onChange={this.handleFoodInput}
                 />
-                <Button className={classes.button} variant="contained" color="primary" onClick={this.handleSearch}>
-                    Find Beer
-                </Button>
+                <div className={classes.wrapper}>
+                    <Button className={classes.button} variant="contained" color="primary" onClick={this.handleSearch}>
+                        Search
+                    </Button>
+                </div>
             </form>
         )
     }

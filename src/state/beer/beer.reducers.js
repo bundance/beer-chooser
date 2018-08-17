@@ -1,4 +1,3 @@
-
 import { handleActions } from 'redux-actions';
 import initialState from './initial.state';
 import * as beerActions from '../../constants/actions/beer';
