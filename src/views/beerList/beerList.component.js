@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -15,12 +10,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+
 const CustomTableCell = withStyles(theme => ({
     head: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: theme.palette.common.red,
         color: theme.palette.common.white,
     },
-        body: {
+    body: {
         fontSize: 14,
     },
 }))(TableCell);
@@ -61,12 +57,12 @@ const BeerList = ({ beers, classes }) => {
             {beers.map(beer => {
             return (
                 <TableRow className={classes.row} key={beer.id}>
-                <CustomTableCell component="th" scope="row">
-                    <img className={classes.img} src={beer.image_url} alt={beer.tagline} />
-                </CustomTableCell>
-                <CustomTableCell>{beer.name}</CustomTableCell>
-                <CustomTableCell>{beer.tagline}</CustomTableCell>
-                <CustomTableCell>{beer.first_brewed}</CustomTableCell>
+                    <CustomTableCell component="th" scope="row">
+                        <img className={classes.img} src={beer.image_url} alt={beer.tagline} />
+                    </CustomTableCell>
+                    <CustomTableCell>{beer.name}</CustomTableCell>
+                    <CustomTableCell>{beer.tagline}</CustomTableCell>
+                    <CustomTableCell>{beer.first_brewed}</CustomTableCell>
                 </TableRow>
             );
             })}

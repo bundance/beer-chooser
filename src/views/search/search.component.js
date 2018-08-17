@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { withStyles } from '@material-ui/core/styles';
+import { POLISH_RED, WHITE } from '../../config/config';
+
 
 const styles = theme => ({
     container: {
@@ -17,6 +19,10 @@ const styles = theme => ({
     menu: {
         width: 200,
     },
+    button: {
+        //backgroundColor: POLISH_RED,
+        color: WHITE
+    }
 });
 class Search extends Component {
     static propTypes = {
@@ -48,7 +54,7 @@ class Search extends Component {
                     margin="normal"
                     onChange={this.handleFoodInput}
                 />
-                <Button variant="contained" color="primary" onClick={this.handleSearch}>
+                <Button className={classes.button} variant="contained" color="primary" onClick={this.handleSearch}>
                     Fetch Beer
                 </Button>
             </form>
