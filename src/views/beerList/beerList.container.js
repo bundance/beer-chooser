@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { selectBeers } from '../../state/beer/beer.selectors';
-import { BeerList } from './beerList.component';
+import { getBeers } from '../../state/beer/beer.selectors';
+import BeerList from './beerList.component';
 
 const mapStateToProps = state => ({
-    beers: selectBeers(state)
+    beers: getBeers(state)
 });
 
 

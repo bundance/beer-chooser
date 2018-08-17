@@ -6,6 +6,7 @@ import { setBeer } from '../beer/beer.actions';
 export function* attemptSearchSaga(action) {
     try{
         const beer = yield call(fetchBeer, action.payload);
+        
         yield put(setBeer(beer))
 
     } catch(err) {}
