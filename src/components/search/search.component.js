@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { POLISH_RED, WHITE } from '../../config/config';
+import { WHITE } from '../../config/config';
 
 const styles = theme => ({
     container: {
@@ -38,14 +38,18 @@ export class Search extends Component {
         }
     }
 
-    handleSearch = clickEvent => this.props.onSearch(this.state.food);
+    handleSearch = event => {
+        event.preventDefault();
+        event.stopPropagation();
+        this.props.onSearch(this.state.food);
+    };
     handleFoodInput = event => this.setState({ food: event.target.value });
 
     render() {
         const { classes } = this.props;
 
         return (
-            <form className={classes.container} noValidate autoComplete="off">
+            <form className={classes.container} noValidate autoComplete="off" onSubmit={ this.handleSearch } >
                 <TextField
                     id="with-placeholder"
                     label="Food"
@@ -60,6 +64,6 @@ export class Search extends Component {
             </form>
         )
     }
-}
+};
 
 export default withStyles(styles)(Search);
