@@ -1,41 +1,28 @@
 import * as sagas from './search.sagas';
+import { setLoadingState } from '../app/app.actions';
+import { ERROR, LOADING, SUCCESS } from '../../constants/store-keys/app.store-keys';
+import { call, put } from 'redux-saga/effects';
+import { fetchBeer } from '../../api/find-beer.api';
+import { setBeer } from '../beer/beer.actions';
 
 describe('beer sagas tests', () => {
-    let mockBeerResponse;
-    let mockState;
-    
-    describe('filterBeer()', () => {
-        beforeEach(() => {
-            mockBeerResponse = [{
-                "id": 10,
-                "name": "Bramling X",
-                "ingredients": {
-                    "malt": [{ "name": "Extra Pale" }],
-                    "hops": [{ "name": "Bramling Cross" }],
-                    "yeast": "Wyeast 1056 - American Ale™"
-                },
-                "food_pairing": [
-                    "Warm blackberry pie",
-                    "Vinegar doused fish and chips",
-                    "Aromatic korma curry with lemon and garlic naan"
-                ]
-            }, {
-                "id": 50, 
-                "name": "Lost Dog (w/Lost Abbey)",
-                "ingredients": {
-                    "malt": [{ "name": "Extra Pale" }],
-                    "hops": [{ "name": "First Gold" }],
-                    "yeast": "Wyeast 1272 - American Ale II™"
-                },
-                "food_pairing": [
-                    "Beef satay skewers",
-                    "Venison & cranberry pie",
-                    "Blackberry mocha gateaux"]
-            }];
-        });
-
-        it('should return the first 2 prices', () => {
-            
-        });
+    it('should fetch the beer and put it in the store', () => {
+        const action = { payload: 'fish' }
+        const gen = sagas.attemptSearchSaga(action);
+        
+        expect(gen.next().value).toEqual(put(setLoadingState(LOADING)));
+        expect(gen.next().value).toEqual(call(fetchBeer, action.payload));
+        expect(gen.next('beer').value).toEqual(put(setBeer('beer')));
+        expect(gen.next().value).toEqual(put(setLoadingState(SUCCESS)));
+        expect(gen.next().done).toEqual(true);
     });
+
+    it('should set the loadingState to error when an error is caught', () => {
+        let action = undefined;
+        const gen = sagas.attemptSearchSaga(action);
+        
+        expect(gen.next().value).toEqual(put(setLoadingState(LOADING)));
+        expect(gen.next().value).toEqual(put(setLoadingState(ERROR)));
+        expect(gen.next().done).toEqual(true);
+    })
 });
