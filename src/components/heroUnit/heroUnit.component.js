@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Search from '../search/search.container';
 import { LOADING } from '../../constants/store-keys/app.store-keys';
 
-const styles = theme => ({
+export const styles = theme => ({
     heroUnit: {
         backgroundColor: theme.palette.background.paper,
     },
@@ -31,8 +31,8 @@ const styles = theme => ({
     }
 });
 
-const HeroUnit = ({ classes, loadingState }) => {
-    const spinnerClassName = loadingState === LOADING ? classes.spinner :classes.hiddenSpinner;
+export const HeroUnit = ({ classes, loadingState }) => {
+    const spinnerClassName = loadingState === LOADING ? classes.spinner : classes.hiddenSpinner;
     const heroContentClass = loadingState === LOADING ? classes.greyedOut : classes.heroContent;
 
     return ( 

@@ -28,7 +28,7 @@ const styles = theme => ({
         position: 'relative',
     }
 });
-class Search extends Component {
+export class Search extends Component {
     static propTypes = {
         classes: PropTypes.object.isRequired,
         loadingState: PropTypes.string.isRequired,
@@ -44,8 +44,10 @@ class Search extends Component {
     }
 
     handleSearch = clickEvent => this.props.onSearch(this.state.food);
-    handleFoodInput = event => this.setState({ food: event.target.value });
-
+    handleFoodInput = event => {
+        console.log("******** event called");
+        this.setState({ food: event.target.value });
+    }
     render() {
         const { classes } = this.props;
 
