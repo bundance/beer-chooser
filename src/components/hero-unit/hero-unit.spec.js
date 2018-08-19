@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { HeroUnit, styles } from './heroUnit.component';
+import { HeroUnit, styles } from './hero-unit.component';
 import { LOADING } from '../../constants/store-keys/app.store-keys';
 
 describe('HeroUnit component', () => {
