@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reducer from "./state/index";
-import App from "./views/home/home.container";
+import Home from "./views/home/home.container";
 import initialState from "./state/initial-state";
 import sagas from "./state/sagas-registration";
 
@@ -22,9 +21,7 @@ sagaMiddleware.run(sagas);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Home />
     </Provider>,
     document.getElementById("root")
 );
-
-registerServiceWorker();

@@ -38,8 +38,8 @@ export class Search extends Component {
     }
 
     handleSearch = event => {
-        event.preventDefault();
-        event.stopPropagation();
+        event && event.preventDefault();
+        event && event.stopPropagation();
         this.props.onSearch(this.state.food);
     };
     handleFoodInput = event => this.setState({ food: event.target.value });

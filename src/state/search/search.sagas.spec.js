@@ -2,7 +2,7 @@ import * as sagas from './search.sagas';
 import { setLoadingState } from '../app/app.actions';
 import { ERROR, LOADING, SUCCESS } from '../../constants/store-keys/app.store-keys';
 import { call, put } from 'redux-saga/effects';
-import { fetchBeer } from '../../api/find-beer.api';
+import { fetchBeer } from '../../api/fetch-beer.api';
 import { setBeer } from '../beer/beer.actions';
 
 describe('beer sagas tests', () => {

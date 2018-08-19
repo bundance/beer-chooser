@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { ON_SEARCH } from '../../constants/actions/search';
 import { setLoadingState } from '../app/app.actions';
 import { ERROR, LOADING, SUCCESS } from '../../constants/store-keys/app.store-keys';
-import { fetchBeer } from '../../api/find-beer.api';
+import { fetchBeer } from '../../api/fetch-beer.api';
 import { setBeer } from '../beer/beer.actions';
 
 export function* attemptSearchSaga(action) {

@@ -18,7 +18,7 @@ const theme = createMuiTheme({
   },
 });
 
-export const App = ({ beers, loadingState }) => (
+export const Home = ({ beers, loadingState }) => (
   <Fragment>
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
@@ -29,6 +29,8 @@ export const App = ({ beers, loadingState }) => (
   </Fragment>
 );
 
-App.propTypes = {
+Home.propTypes = {
   beers: PropTypes.array.isRequired,
 };
+
+export default Home;
