@@ -3,7 +3,7 @@ import { onSearch } from '../../state/search/search.actions';
 import { selectLoadingState } from '../../state/app/app.selectors';
 import Search from './search.component';
 
-const mapStateToProps = state => ({ loadingState: selectLoadingState(state) });
+const mapStateToProps = undefined;
 
 const mapDispatchToProps = ({
     onSearch

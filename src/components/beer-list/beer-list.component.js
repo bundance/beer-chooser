@@ -11,7 +11,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import BeerItemPopover from '../beer-item-popover/beer-item-popover.component';
 
-
 const CustomTableCell = withStyles(theme => ({
     head: {
         backgroundColor: theme.palette.common.red,
@@ -87,5 +86,3 @@ BeerList.propTypes = {
 };
 
 export default withStyles(styles)(BeerList);
-//blobby - you're here
-// <BeerItemPopover>BEER!</BeerItemPopover>

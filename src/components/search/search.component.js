@@ -26,7 +26,6 @@ const styles = theme => ({
 export class Search extends Component {
     static propTypes = {
         classes: PropTypes.object.isRequired,
-        loadingState: PropTypes.string.isRequired,
         onSearch: PropTypes.func.isRequired
     }
 
