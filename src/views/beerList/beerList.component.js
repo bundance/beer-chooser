@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import Table from '@material-ui/core/Table';
@@ -40,36 +42,38 @@ const styles = theme => ({
     }
 });
 
-const BeerList = ({ beers, classes }) => {
-    console.log({ beers });
-    return (
-    <Paper className={classes.root}>
-        <Table className={classes.table}>
-        <TableHead>
-            <TableRow>
-            <CustomTableCell></CustomTableCell>
-            <CustomTableCell>Beer Name</CustomTableCell>
-            <CustomTableCell>Description</CustomTableCell>
-            <CustomTableCell>First Brewed</CustomTableCell>
-            </TableRow>
-        </TableHead>
-        <TableBody>
-            {beers.map(beer => {
-            return (
-                <TableRow className={classes.row} key={beer.id}>
-                    <CustomTableCell component="th" scope="row">
-                        <img className={classes.img} src={beer.image_url} alt={beer.tagline} />
-                    </CustomTableCell>
-                    <CustomTableCell>{beer.name}</CustomTableCell>
-                    <CustomTableCell>{beer.tagline}</CustomTableCell>
-                    <CustomTableCell>{beer.first_brewed}</CustomTableCell>
-                </TableRow>
-            );
-            })}
-        </TableBody>
-        </Table>
-    </Paper>
-)};
+const BeerList = ({ beers, classes }) => (
+        <Card>
+            <CardContent>
+                <Paper className={classes.root}>
+                    <Table className={classes.table}>
+                    <TableHead>
+                        <TableRow>
+                        <CustomTableCell></CustomTableCell>
+                        <CustomTableCell>Beer Name</CustomTableCell>
+                        <CustomTableCell>Description</CustomTableCell>
+                        <CustomTableCell>First Brewed</CustomTableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {beers.map(beer => {
+                        return (
+                            <TableRow className={classes.row} key={beer.id}>
+                                <CustomTableCell component="th" scope="row">
+                                    <img className={classes.img} src={beer.image_url} alt={beer.tagline} />
+                                </CustomTableCell>
+                                <CustomTableCell>{beer.name}</CustomTableCell>
+                                <CustomTableCell>{beer.tagline}</CustomTableCell>
+                                <CustomTableCell>{beer.first_brewed}</CustomTableCell>
+                            </TableRow>
+                        );
+                        })}
+                    </TableBody>
+                    </Table>
+                </Paper>
+            </CardContent>
+        </Card>
+);
 
 BeerList.propTypes = {
     classes: PropTypes.object.isRequired,

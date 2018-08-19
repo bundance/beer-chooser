@@ -44,7 +44,7 @@ export class Search extends Component {
     render() {
         const { classes } = this.props;
 
-        return ( 
+        return (
             <form className={classes.container} noValidate autoComplete="off">
                 <TextField
                     id="with-placeholder"
