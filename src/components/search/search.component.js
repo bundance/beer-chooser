@@ -9,23 +9,18 @@ const styles = theme => ({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
-        marginTop: 100
+        marginTop: 100,
+        margin: 'dense'
     },
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         width: 462
     },
-    menu: {
-        width: 200,
-    },
     button: {
         color: WHITE,
-        fontWeight: 'bold'
-    },
-    wrapper: {
-        margin: theme.spacing.unit,
-        position: 'relative',
+        fontWeight: 'bold',
+        height: 64
     }
 });
 export class Search extends Component {
@@ -44,10 +39,8 @@ export class Search extends Component {
     }
 
     handleSearch = clickEvent => this.props.onSearch(this.state.food);
-    handleFoodInput = event => {
-        console.log("******** event called");
-        this.setState({ food: event.target.value });
-    }
+    handleFoodInput = event => this.setState({ food: event.target.value });
+
     render() {
         const { classes } = this.props;
 
@@ -61,11 +54,9 @@ export class Search extends Component {
                     margin="normal"
                     onChange={this.handleFoodInput}
                 />
-                <div className={classes.wrapper}>
-                    <Button className={classes.button} variant="contained" color="primary" onClick={this.handleSearch}>
-                        Search
-                    </Button>
-                </div>
+                <Button size={'medium'} className={classes.button} variant="contained" color="primary" onClick={this.handleSearch}>
+                    Search
+                </Button>
             </form>
         )
     }
