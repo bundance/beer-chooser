@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reducer from "./state/index";
-import App from "./App.container";
+import App from "./views/home/App.container";
 import initialState from "./state/initial-state";
 import sagas from "./state/sagas-registration";
 

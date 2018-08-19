@@ -4,10 +4,10 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
-import TopAppBar from './components/topAppBar/topAppBar.component';
-import HeroUnit from './components/heroUnit/heroUnit.component';
-import BeerList from './views/beerList/beerList.container';
-import { POLISH_RED } from './config/config';
+import TopAppBar from '../../components/topAppBar/topAppBar.component';
+import HeroUnit from '../../components/heroUnit/heroUnit.component';
+import BeerList from '../../components/beerList/beerList.container';
+import { POLISH_RED } from '../../config/config';
 
 const theme = createMuiTheme({
   palette: {

@@ -11,6 +11,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import BeerItemPopover from '../beer-item-popover/beer-item-popover.component';
 
 
 const CustomTableCell = withStyles(theme => ({
@@ -24,10 +25,15 @@ const CustomTableCell = withStyles(theme => ({
 }))(TableCell);
 
 const styles = theme => ({
+    
+    h3: {
+        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+        padding: 10
+    },
     root: {
         width: '100%',
         marginTop: theme.spacing.unit * 3,
-        overflowX: 'auto',
+        overflowX: 'auto'
     },
     table: {
         minWidth: 700,
@@ -43,36 +49,39 @@ const styles = theme => ({
 });
 
 const BeerList = ({ beers, classes }) => (
-        <Card>
-            <CardContent>
-                <Paper className={classes.root}>
-                    <Table className={classes.table}>
-                    <TableHead>
-                        <TableRow>
+    <Card>
+        <CardContent>
+            <Paper className={classes.root}>
+                <h3 className={classes.h3} >Results (hover over image for description)</h3>
+                <Table className={classes.table}>
+                <TableHead>
+                    <TableRow className={classes.head}>
                         <CustomTableCell></CustomTableCell>
                         <CustomTableCell>Beer Name</CustomTableCell>
                         <CustomTableCell>Description</CustomTableCell>
                         <CustomTableCell>First Brewed</CustomTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {beers.map(beer => {
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {beers.map(beer => {
                         return (
                             <TableRow className={classes.row} key={beer.id}>
                                 <CustomTableCell component="th" scope="row">
-                                    <img className={classes.img} src={beer.image_url} alt={beer.tagline} />
+                                    <BeerItemPopover beer={ beer }>
+                                        <img className={classes.img} src={beer.image_url} alt={beer.tagline} />
+                                    </BeerItemPopover>
                                 </CustomTableCell>
                                 <CustomTableCell>{beer.name}</CustomTableCell>
                                 <CustomTableCell>{beer.tagline}</CustomTableCell>
                                 <CustomTableCell>{beer.first_brewed}</CustomTableCell>
                             </TableRow>
                         );
-                        })}
-                    </TableBody>
-                    </Table>
-                </Paper>
-            </CardContent>
-        </Card>
+                    })}
+                </TableBody>
+                </Table>
+            </Paper>
+        </CardContent>
+    </Card>
 );
 
 BeerList.propTypes = {
@@ -80,3 +89,5 @@ BeerList.propTypes = {
 };
 
 export default withStyles(styles)(BeerList);
+//blobby - you're here
+// <BeerItemPopover>BEER!</BeerItemPopover>
