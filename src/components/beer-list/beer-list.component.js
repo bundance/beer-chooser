@@ -49,7 +49,7 @@ const BeerList = ({ beers, classes }) => (
     <Card>
         <CardContent>
             <Paper className={classes.root}>
-                <h3 className={classes.h3} >Results (hover over image for description)</h3>
+                <h3 className={classes.h3} >Results (hover over image for full description)</h3>
                 <Table className={classes.table}>
                 <TableHead>
                     <TableRow className={classes.head}>
@@ -63,7 +63,9 @@ const BeerList = ({ beers, classes }) => (
                     {beers.map(((beer, index) => {
                         return (
                             <TableRow className={classes.row} key={index}>
-                            {/* Note: index is a terrible key,  but we don't care about array order, so it'll do for now */}
+                            {/* Note: using arrays index is a bad key,  
+                                but beer.id is not guaranteed unique, and as we don't care about array
+                                 order, it'll do for now */}
                                 <CustomTableCell component="th" scope="row">
                                     <BeerItemPopover beer={ beer }>
                                         <img className={classes.img} src={beer.image_url} alt={beer.tagline} />

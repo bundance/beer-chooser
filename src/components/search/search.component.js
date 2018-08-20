@@ -57,7 +57,13 @@ export class Search extends Component {
                     margin="normal"
                     onChange={this.handleFoodInput}
                 />
-                <Button size={'medium'} className={classes.button} variant="contained" color="primary" onClick={this.handleSearch}>
+                <Button 
+                    size={'medium'} 
+                    className={classes.button} 
+                    variant="contained" 
+                    color="primary" 
+                    onClick={this.handleSearch}
+                >
                     Search
                 </Button>
             </form>
