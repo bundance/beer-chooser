@@ -60,9 +60,10 @@ const BeerList = ({ beers, classes }) => (
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {beers.map(beer => {
+                    {beers.map(((beer, index) => {
                         return (
-                            <TableRow className={classes.row} key={beer.id}>
+                            <TableRow className={classes.row} key={index}>
+                            {/* Note: index is a terrible key,  but we don't care about array order, so it'll do for now */}
                                 <CustomTableCell component="th" scope="row">
                                     <BeerItemPopover beer={ beer }>
                                         <img className={classes.img} src={beer.image_url} alt={beer.tagline} />
@@ -73,7 +74,7 @@ const BeerList = ({ beers, classes }) => (
                                 <CustomTableCell>{beer.first_brewed}</CustomTableCell>
                             </TableRow>
                         );
-                    })}
+                    }))}
                 </TableBody>
                 </Table>
             </Paper>
