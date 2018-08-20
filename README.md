@@ -1,29 +1,26 @@
-## Table of Contents
+# Beer Chooser
+A simple app to help you choose a beer. Simply enter the food you want to eat, and the app will show you beers that are recommended to go with it.
 
-- [Install](#install)
-- [Run](#npm-start)
-- [Run Tests](#npm-test)
-
-#install
-Install
+## Install
 ```
 npm install
 ```
 
-#npm-start
-Run
+## Run
 
-To run the app:
 ```
 npm start
 ```
 
-Then browsde to `localhost:3000`
+Then browse to `localhost:3000`
 
-#npm-test
-Run Tests
 
-Type:
+## Run Tests
+
 ```
 npm test
 ```
+
+## About
+
+The app uses React, Redux, Redux-Saga and Material UI for the front-end, and queries Punk API to get the recommended beers.
