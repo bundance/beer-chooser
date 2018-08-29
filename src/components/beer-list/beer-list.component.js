@@ -65,7 +65,7 @@ const BeerList = ({ beers, classes }) => (
                             <TableRow className={classes.row} key={index}>
                             {/* Note: using arrays index is a bad key,  
                                 but beer.id is not guaranteed unique, and as we don't care about array
-                                 order, it'll do for now */}
+                                order, it'll do for now */}
                                 <CustomTableCell component="th" scope="row">
                                     <BeerItemPopover beer={ beer }>
                                         <img className={classes.img} src={beer.image_url} alt={beer.tagline} />
