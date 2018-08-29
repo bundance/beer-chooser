@@ -7,7 +7,5 @@ export default handleActions({
 }, initialState);
 
 function setBeer(state, action) {
-    return {
-        ...action.payload
-    };
+    return action.payload
 }
